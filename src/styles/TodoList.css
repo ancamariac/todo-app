@@ -1,0 +1,13 @@
+
+ 
+.card-deck {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   margin: -15px; 
+ }
+ 
+ .card {
+   flex: 1;
+   margin: 15px; 
+ }

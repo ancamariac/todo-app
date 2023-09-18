@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TodoForm = () => {
   const [title, setTitle] = useState("");
@@ -15,12 +17,17 @@ const TodoForm = () => {
       };
 
       await axios.post("http://localhost:4000/todo", newTodo);
+      toast.success("TODO added successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     } catch (error) {}
   };
 
   return (
     <div className="todo-form">
-      <h2>Adaugă un task nou</h2>
+      <h2>Add a new task</h2>
+      <br></br>
       <div className="form-group">
         <input
           type="text"
@@ -30,6 +37,7 @@ const TodoForm = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
+      <br></br>
       <div className="form-group">
         <textarea
           className="form-control"
@@ -38,9 +46,11 @@ const TodoForm = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
+      <br></br>
       <button className="btn btn-primary" onClick={handleAddTodo}>
-        Adaugă
+        Add
       </button>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css';
-
+import React, { useState } from "react";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TodoDelete = () => {
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
 
   const handleDeleteTodo = async () => {
     try {
       await axios.delete(`http://localhost:4000/todo/${id}`);
-    } catch (error) {
-    }
+      toast.success("TODO deleted successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } catch (error) {}
   };
 
   return (
     <div className="todo-delete">
-      <h2>Șterge un task după ID</h2>
+      <h2>Delete a task</h2>
+      <br></br>
       <div className="form-group">
         <input
           type="text"
@@ -25,9 +30,11 @@ const TodoDelete = () => {
           onChange={(e) => setId(e.target.value)}
         />
       </div>
+      <br></br>
       <button className="btn btn-danger" onClick={handleDeleteTodo}>
-        Șterge
+        Delete
       </button>
+      <ToastContainer />
     </div>
   );
 };

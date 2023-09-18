@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/TodoList.css"; // Adăugați fișierul CSS personalizat
+import "../styles/TodoList.css";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -20,11 +20,11 @@ const TodoList = () => {
   const handleCheckboxChange = async (id, title, description, done) => {
     try {
       await axios.post(`http://localhost:4000/todo/${id}`, {
+        id,
         title,
         description,
         done: !done,
       });
-      // Actualizăm starea locală a task-ului după ce am primit răspunsul de la server
       const updatedTodos = todos.map((todo) =>
         todo.id === id ? { ...todo, done: !done } : todo
       );

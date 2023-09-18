@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/Navigation.css"; // Adăugați fișierul CSS personalizat
+import "../styles/Navigation.css"; 
 
 const Navigation = () => {
   return (

@@ -20,15 +20,7 @@
  .nav-link:hover {
    color: #007bff;
  }
- 
- .nav-item {
-   margin-bottom: 10px;
- }
 
- .nav-link.active {
-   color: #28a745;
-   border-bottom: 2px solid #28a745; 
-   }
    
   
  

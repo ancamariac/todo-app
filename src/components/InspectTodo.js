@@ -35,7 +35,7 @@ const TodoView = () => {
           <div className="card-body">
             <h3 className="card-title">{todo.title}</h3>
             <p className="card-text">{todo.description}</p>
-            <p className="card-text">Completed: {todo.done ? "Da" : "Nu"}</p>
+            <p className="card-text">Completed: {todo.done ? "Yes" : "No"}</p>
           </div>
         </div>
       )}
